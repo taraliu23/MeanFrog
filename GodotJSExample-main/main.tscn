@@ -1,0 +1,65 @@
+[gd_scene load_steps=6 format=3 uid="uid://bvykv0u5duqyj"]
+
+[ext_resource type="Script" path="res://test_button.ts" id="1_ewk4v"]
+[ext_resource type="Script" path="res://ui/main_ui.ts" id="1_j74ag"]
+[ext_resource type="Texture2D" uid="uid://dx3san3aa6mwy" path="res://icon.svg" id="4_2050k"]
+[ext_resource type="Script" path="res://tests/my_editor_sprite.ts" id="5_l2t80"]
+[ext_resource type="Script" path="res://simple_js_node.js" id="5_qv8k5"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_j74ag")
+speed = 123.0
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 19.0
+offset_right = 105.0
+offset_bottom = 50.0
+text = "GodotJS Button
+"
+script = ExtResource("1_ewk4v")
+tags = 6
+color = 2
+hello = "hello111"
+
+[node name="JSButtonChildNode" type="Node" parent="Control/Button"]
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 123.0
+offset_right = 180.0
+offset_bottom = 146.0
+text = "Label"
+
+[node name="TextEdit" type="TextEdit" parent="Control"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 172.0
+offset_right = 239.0
+offset_bottom = 263.0
+placeholder_text = "Input text"
+
+[node name="Sprite2D" type="Sprite2D" parent="Control"]
+position = Vector2(386, 134)
+rotation = 0.575926
+texture = ExtResource("4_2050k")
+script = ExtResource("5_l2t80")
+speed = 0.25
+
+[node name="BareJSNode" type="Node" parent="."]
+script = ExtResource("5_qv8k5")
+speed = 0.22
+
+[connection signal="pressed" from="Control/Button" to="Control/Button" method="_on_pressed"]
